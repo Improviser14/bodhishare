@@ -1,24 +1,27 @@
 <% include ../partials/header %>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
-            <p class="lead">Bodhishare</p>
+        <div class="col">
+            <p class="lead"><%=bodhi.name%></p>
             <div class="list-group">
-                <li class="list-group-item active">Info 1</li>
-                <li class="list-group-item">Info 2</li>
-                <li class="list-group-item">Info 3</li>
+                <li class="list-group-item active">author's BTC address:</li>
+                <li class="list-group-item"><em><%= bodhi.BTCaddress %></em></li>
+                <li class="list-group-item">Copy the above hash address, paste it into your crypto wallet's send address field and donate to this author directly and securely. Bodhishare does not take a cut of your donation. Take your time and be safe, this is new technology, and welcome to internet 3.0!</li>
+                <!--<li class="list-group-item"><em><%= bodhi.BTCQR %></em></li> -->
            </div>
         </div>
         <div class="col-md-9">
             <div class="thumbnail">
                <img class="img-responsive" src="<%= bodhi.image %>">
+               
                <div class="caption-full">
-                   <h4 class="pull-right">ETH 0.0005</h4>
-                   <h4><a><%=bodhi.name%></a></h4>
+                   <h4>suggested donation <%= bodhi.donation %>/BTC<h4> 
+                   <hr>
+                   <h5><a><%=bodhi.name%></a></h5>
                    <p><%= bodhi.description %></p>
                    <p>
-                      <em>Submitted By <%= bodhi.author.username %></em>
+                      <em>submitted by <%= bodhi.author.username %></em>
                    </p>
                    <% if(currentUser && bodhi.author.id.equals(currentUser._id)){ %>
                         <a class="btn btn-xs btn-warning" href="/bodhis/<%= bodhi._id %>/edit">Edit</a>
@@ -28,6 +31,7 @@
                     <% }%>
                </div>
             </div>
+            
             <div class="well">
                 <div class="text-right">
                     <a class="btn btn-success" href="/bodhis/<%= bodhi._id %>/comments/new">add a new comment</a>
@@ -37,14 +41,14 @@
                     <div class="row">
                         <div class="col-md-12">
                            <strong><%= comment.author.username %></strong>
-                           <span class="pull-right">Chi 0.0005</span>
+                           <span class="pull-right">chi 1</span>
                             <p>
                                  <%= comment.text %>
                             </p>
                             <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
                             <a class="btn btn-xs btn-warning" 
                                href="/bodhis/<%=bodhi._id %>/comments/<%=comment._id %>/edit">Edit</a>
-                            <form class="delete-form" action="/bodhis/<%=bodhi._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                            <form id="delete-form" action="/bodhis/<%=bodhi._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
                                 <input type="submit" class="btn btn-xs btn-danger" value="Delete">
                             </form>
                         <% } %>

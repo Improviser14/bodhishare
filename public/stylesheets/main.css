@@ -3,13 +3,36 @@
 }
 
 .thumbnail {
-    padding: 0;
+    padding: 0px;
 }
 
 .thumbnail .caption-full {
     padding: 9px;
+    margin-top: 9px;
+    float: left;
 }
 
 .delete-form {
     display: inline;
 }
+
+.container-fluid {
+   padding:20px;
+}
+
+.lead {
+    padding-left:15px;
+}
+
+.list-group {
+    padding:9px;
+}
+
+/* this works for desktop size but fails on smaller screens
+.list-group {
+    height:33%;
+    float:right;
+}*/
+
+
+

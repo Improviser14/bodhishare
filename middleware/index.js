@@ -1,7 +1,7 @@
 var Bodhi = require("../models/bodhi");
 var Comment = require("../models/comment");
 
-// all the middleare goes here
+// all the middleware goes here
 var middlewareObj = {};
 
 middlewareObj.checkBodhiOwnership = function(req, res, next) {
@@ -21,7 +21,7 @@ middlewareObj.checkBodhiOwnership = function(req, res, next) {
            }
         });
     } else {
-        res.flash("you need to be logged in to do that");
+        res.flash("please login to perform this operation");
         res.redirect("back");
     }
 }
@@ -43,7 +43,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
            }
         });
     } else {
-        req.flash("error", "you need to be logged in to do that");
+        req.flash("error", "please login to perform this operation");
         res.redirect("back");
     }
 }
@@ -52,7 +52,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    req.flash("error", "you need to be logged in to do that");
+    req.flash("error", "please login to perform this operation");
     res.redirect("/login");
 }
 

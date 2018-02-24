@@ -1,9 +1,39 @@
-<% include partials/header %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bodhishare</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+    
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
 
-<h1>Bodhishare Landing page!</h1>
-
-<p>Bodhi (Sanskrit: बोधि; and Pali) in Buddhism is the understanding possessed by a Buddha regarding the true nature of things </p>
-
-<a href="/bodhis">View all bodhis</a>
+    <div id="landing-header">
+ 		<h1 class="display-1">bodhishare</h1>
+ 		<p class="lead">share wisdom, seek wisdom, contribute to the wise</p>
+		<a href="/bodhis" class="btn btn-lg btn-success">View All Bodhis</a>
+    </div> 
+    
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
 
 <% include partials/footer %>

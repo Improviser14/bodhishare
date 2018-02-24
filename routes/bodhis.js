@@ -18,13 +18,16 @@ router.get("/", function(req, res){
 //create route - add new bodhis to DB
 router.post("/", middleware.isLoggedIn, function(req, res){
   var name = req.body.name;
+  var donation = req.body.donation;
+  var BTCaddress = req.body.BTCaddress;
+  var BTCQR = req.body.BTCQR;
   var image = req.body.image;
   var desc = req.body.description;
   var author = {
       id: req.user._id,
       username: req.user.username
   };
-  var newBodhi = {name: name, image: image, description: desc, author:author};
+  var newBodhi = {name: name, donation: donation, image: image, description: desc, author:author};
  //create a new bodhi and save to DB
  Bodhi.create(newBodhi, function(err, newlyCreated){
      if(err){
@@ -60,6 +63,7 @@ router.get("/:id", function(req, res){
 // edit bodhi route
 router.get("/:id/edit", middleware.checkBodhiOwnership, function(req, res){
           Bodhi.findById(req.params.id, function(err, foundBodhi){
+              
               res.render("bodhis/edit", {bodhi: foundBodhi});
           });
 });

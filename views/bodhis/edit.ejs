@@ -3,16 +3,22 @@
 <div class="container">
     <div class="row">
         <h1 style="text-align: center">Edit <%= bodhi.name %></h1>
-        <div style="width: 30%; margin: 25px auto;">
+        <div style="width: 50%; margin: 25px auto;">
             <form action="/bodhis/<%= bodhi._id %>?_method=PUT" method="POST">
                 <div class="form-group">
-                   <input class="form-control" type="text" name="bodhi[name]" value="<%= bodhi.name %>"> 
+                   <input class="form-control" type="text" name="bodhi[name]" placeholder="bodhi title" value="<%= bodhi.name %>"> 
+                </div>
+                 <div class="form-group">
+                   <input class="form-control" type="number" name="bodhi[donation]" placeholder="suggested donation/BTC" value="<%= bodhi.donation %>" min="0.0001" step="0.0001"> 
+                </div>
+                 <div class="form-group">
+                   <input class="form-control" type="text" name="bodhi[BTCaddress]" placeholder="BTC hash address" value="<%= bodhi.BTCaddress %>"> 
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="bodhi[image]" value="<%= bodhi.image %>">
+                    <input class="form-control" type="text" name="bodhi[image]" placeholder="image URL" value="<%= bodhi.image %>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="bodhi[description]" value="<%= bodhi.description %>">
+                    <input class="form-control" type="text" name="bodhi[description]" placeholder=" text/HTML content" value="<%= bodhi.description %>">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">submit</button>

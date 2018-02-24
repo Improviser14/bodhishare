@@ -79,7 +79,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
       if(err){
           res.redirect("back");
       } else {
-          req.flash("susccess", "comment deleted");
+          req.flash("success", "comment deleted");
           res.redirect("/bodhis/" + req.params.id);
       }
    }); 
