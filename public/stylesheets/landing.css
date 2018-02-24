@@ -1,0 +1,86 @@
+body {
+    background: #000;
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+p {
+  color: #fff;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url(https://images.unsplash.com/photo-1434332253042-50df2f9f7b39?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=859ff47f87ba1bf710fe182a1fd7b6c2&auto=format&fit=crop&w=1650&q=80) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://images.unsplash.com/photo-1505028106030-e07ea1bd80c3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6780283deae869993510eb7902bd5f83&auto=format&fit=crop&w=1240&q=80);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://images.unsplash.com/photo-1506367861045-27937c3a8e63?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d0dd4f9a468f12472b34195060ccd46d&auto=format&fit=crop&w=1334&q=80);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://images.unsplash.com/photo-1484912695906-c0c29e914a1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=014be44df2e64cd58756f13ff298fb04&auto=format&fit=crop&w=1650&q=80);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(https://images.unsplash.com/photo-1500753934328-32e596b10ef1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a3adf26c31cc6096a09deb239edcffa&auto=format&fit=crop&w=1650&q=80);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
