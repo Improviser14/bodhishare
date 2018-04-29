@@ -12,6 +12,10 @@
     float: left;
 }
 
+.thumbnail img:hover {
+	transform: scale(1.05);
+}
+
 .delete-form {
     display: inline;
 }
@@ -27,6 +31,17 @@
 .list-group {
     padding:9px;
 }
+
+.btn btn-xs btn-warning {
+    float:right;
+}
+
+#comment-button {
+    margin:20px;
+}
+
+
+
 
 /* this works for desktop size but fails on smaller screens
 .list-group {

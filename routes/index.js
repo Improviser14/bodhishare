@@ -3,7 +3,7 @@ var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
 
-//route route
+//landing page
 router.get("/", function(req, res){
     res.render("landing");
 });
@@ -16,10 +16,14 @@ router.get("/register", function(req, res){
 //signup logic
 router.post("/register", function(req, res){
    var newUser = new User({username: req.body.username});
+   //eval(require('locus'))
+   if(req.body.adminCode === "satoshi"){
+       newUser.isAdmin = true;
+   }
    User.register(newUser, req.body.password, function(err, user){
       if(err){
-          req.flash("error", err.message);
-          return res.render("register");
+          console.log(err);
+          return res.render("register", {error: err.message});
       } 
       passport.authenticate("local")(req, res, function(){
          req.flash("success", "welcome to bodhishare " + user.username);
@@ -37,7 +41,9 @@ router.get("/login", function(req, res ){
 router.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/bodhis",
-        failureRedirect: "/login"
+        failureRedirect: "/login",
+        failureFlash: true,
+        successFlash: "welcome back"
     }), function(req, res){
 });
 

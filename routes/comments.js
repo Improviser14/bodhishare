@@ -39,7 +39,7 @@ router.post("/", middleware.isLoggedIn,function(req, res){
                 console.log(comment);
                 req.flash("success", "successfully added comment");
                 res.redirect("/bodhis/" + bodhi._id);
-            }
+            } 
          });
         }
     });
@@ -79,7 +79,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
       if(err){
           res.redirect("back");
       } else {
-          req.flash("success", "comment deleted");
+          req.flash("suçccess", "comment deleted");
           res.redirect("/bodhis/" + req.params.id);
       }
    }); 

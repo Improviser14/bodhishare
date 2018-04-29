@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <h1 style="text-align: center">edit</h1>
+        <h1 style="text-align: center">edit your comment</h1>
         <div style="width: 30%; margin: 25px auto;">
             <form action="/bodhis/<%= bodhi_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
                 <div class="form-group">
@@ -12,7 +12,7 @@
                     <button class="btn btn-lg btn-primary btn-block">submit</button>
                 </div>
             </form>
-            <a href="/bodhis">go back</a>
+            <a href="/bodhis/<%=bodhi_id%>">go back</a>
         </div>
    </div>
 </div>

@@ -1,32 +1,38 @@
-
-var express    = require("express"),
+var dotenv     = require('dotenv').config(),
+    express    = require("express"),
     app        = express(),
     bodyParser = require("body-parser"), 
     mongoose   = require("mongoose"),
     flash      = require("connect-flash"),
     passport   = require("passport"),
+    cookieParser = require("cookie-parser"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
     Bodhi      = require("./models/bodhi"),
     Comment    = require("./models/comment"),
     User       = require("./models/user"),
-    seedDB     = require("./seeds");
-
+    session = require("express-session"),
+    moment = require('moment'),
+    seedDB     = require("./seeds"),
+    
+    
 //requiring routes
-var commentRoutes = require("./routes/comments"),
+    commentRoutes = require("./routes/comments"),
     bodhiRoutes   = require("./routes/bodhis"),
-    indexRoutes   = require("./routes/index"); 
+    indexRoutes   = require("./routes/index"),
+    contactRoutes = require("./routes/contact");
 
-mongoose.connect("mongodb://localhost/bodhishare/data");
+mongoose.connect("mongodb://localhost/bodhishare");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-//seedDB(); //seed the database
+//seedDB(); //uncomment this line to seed the database
 
-
+app.locals.moment = require("moment");
 //passport config
+//refactor - app.use secret to a .env file
 app.use(require("express-session")({
     secret: "Paradise is a good girl!",
     resave: false,
@@ -49,6 +55,9 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/bodhis", bodhiRoutes);
 app.use("/bodhis/:id/comments", commentRoutes);
+app.use("/contact", contactRoutes);
+
+
 
 app.listen(process.env.PORT, process.env.IP ,function(){
     console.log("The bodhishare server has started!");
