@@ -4,7 +4,6 @@ var bodhiSchema = new mongoose.Schema({
     name: String,
     donation: String,
     BTCaddress: String,
-    // Image or string? BTCQR: String,
     image: String,
     description: String,
     createdAt: { type: Date, default: Date.now },

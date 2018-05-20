@@ -1,7 +1,8 @@
 var Bodhi = require("../models/bodhi");
 var Comment = require("../models/comment");
 
-// all the middleware goes here
+// middleware 
+
 var middlewareObj = {};
 
 middlewareObj.checkBodhiOwnership = function(req, res, next) {
@@ -24,7 +25,7 @@ middlewareObj.checkBodhiOwnership = function(req, res, next) {
         res.flash("please login to perform this operation");
         res.redirect("back");
     }
-}
+};
 
 middlewareObj.checkCommentOwnership = function(req, res, next) {
  if(req.isAuthenticated()){
@@ -46,7 +47,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
         req.flash("error", "please login to perform this operation");
         res.redirect("back");
     }
-}
+};
 
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
@@ -54,6 +55,6 @@ middlewareObj.isLoggedIn = function(req, res, next){
     }
     req.flash("error", "please login to perform this operation");
     res.redirect("/login");
-}
+};
 
 module.exports = middlewareObj;

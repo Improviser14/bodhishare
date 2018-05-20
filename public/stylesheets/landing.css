@@ -10,7 +10,7 @@ body {
   transition:all 1.7s ease-in;
 }
 
-#landing-header h1 {
+h1 {
   color: #fff;
 }
 

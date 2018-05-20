@@ -15,7 +15,7 @@ var imageFilter = function (req, file, cb) {
     }
     cb(null, true);
 };
-var upload = multer({ storage: storage, fileFilter: imageFilter})
+var upload = multer({ storage: storage, fileFilter: imageFilter});
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
@@ -29,7 +29,7 @@ console.log("api_secret: " + "encrypted");
   
 //index route 
 router.get("/", function(req, res){
-    //get all bodhis from db
+    //get all bodhis from DB
     Bodhi.find({}).sort({"_id": -1}).limit(10).exec(function(err, allBodhis){
         if(err){
             console.log(err);
@@ -43,10 +43,10 @@ router.get("/", function(req, res){
 router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, res) {
   cloudinary.uploader.upload(req.file.path, function (result) {
       console.log(result);
-    // add cloudinary url for the image to the campground object under image property
+    // add cloudinary url for the image to the bodhi object under image property
     req.body.bodhi.image = result.secure_url;
     console.log(req.body.bodhi);
-    // add author to campground
+    // add author to bodhi
     req.body.bodhi.author = {
       id: req.user._id,
       username: req.user.username
