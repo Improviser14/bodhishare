@@ -13,7 +13,7 @@
         </div>
         
     <div class="col-md-12">
-            <div class="row"> <!-- You also needed a row element here becaue the bottom one was overlapping over your buttons above -->
+            <div class="row"> 
                 <div class="thumbnail">
                    <img class="img-responsive" src="<%= bodhi.image %>">
                 <div class="caption-full">
@@ -59,7 +59,7 @@
                             <a class="btn btn-xs btn-warning" 
                                href="/bodhis/<%=bodhi._id %>/comments/<%=comment._id %>/edit">Edit</a>
                                <form class="delete-form" action="/bodhis/<%=bodhi._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST"
-                                    onsubmit="return confirm('Are You Sure You Want To Delete This Comment?');">
+                                    onsubmit="return confirm('Are You Sure You Want To Delete This Comment?');"> 
                                 <input type="submit" class="btn btn-xs btn-danger" value="Delete">
                                </form>
                         <% } %>

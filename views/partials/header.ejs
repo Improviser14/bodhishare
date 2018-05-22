@@ -51,6 +51,12 @@
         </div>
       <% } %>
     </div>
+    <!-- jquery alert before deleting bodhis or comments -->
+   <script>
+     $('.delete-form').click(function () {
+    return confirm("Are you sure you want to delete this?");
+    });
+   </script> 
   </body>
   
 </html>
