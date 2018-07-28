@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+  <html>
     <head>
         <title>Bodhishare</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -8,7 +8,7 @@
     </head>
     <body>
     
-    <div class="container">
+      <div class="container">
         <% if(error && error.length > 0){ %>
             <div class="alert alert-danger" role="alert">
                 <%= error %>
@@ -19,21 +19,21 @@
                 <%= success %>
             </div>
         <% } %>
-    </div>
-
-    <div id="landing-header">
- 		<h1 class="display-1">bodhishare</h1>
- 		<p class="lead">share wisdom, seek wisdom, contribute to the wise</p>
-		<a href="/bodhis" class="btn btn-lg btn-success">View All Bodhis</a>
-    </div> 
-    
-    
-    <ul class="slideshow">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
+      </div>
+  
+      <div id="landing-header">
+     		<h1 class="display-1">bodhishare</h1>
+     		<p class="lead">share wisdom, seek wisdom, contribute to the wise</p>
+    		<a href="/bodhis" class="btn btn-lg btn-success">View All Bodhis</a>
+      </div> 
+      
+      
+      <ul class="slideshow">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
 
 <% include partials/footer %>

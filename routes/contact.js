@@ -23,6 +23,9 @@ router.post("/send", function(req, res) {
     // Make request to Verify URL
     request.get(verifyURL, (err, response, body) => {
       // if not successful
+      if(err){
+        console.log(err);
+      }
       if (body.success !== undefined && !body.success) {
         req.flash("error", "Captcha Failed");
         return res.redirect("/contact");
