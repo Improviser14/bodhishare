@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <p class="lead"><%=bodhi.name%></p>
+            <p class="lead"><%= bodhi.name %></p>
             <div class="list-group">
                 <li class="list-group-item active">author's BTC address:</li>
                 <li class="list-group-item"><em><%= bodhi.BTCaddress %></em></li>
@@ -40,7 +40,7 @@
                     <div class="col-sm-12">
                         <div class="text-center">
                             <a id="comment-button" class="btn btn-success" href="/bodhis/<%= bodhi._id %>/comments/new">add a comment to
-                            <div><%=bodhi.name%></div></a>
+                            <div><%= bodhi.name %></div></a>
                         </div>
                     </div>
                 </div>

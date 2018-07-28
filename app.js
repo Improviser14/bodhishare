@@ -32,9 +32,8 @@ app.use(flash());
 
 app.locals.moment = require("moment");
 //passport config
-//refactor - app.use secret to a .env file
 app.use(require("express-session")({
-		secret: "Paradise is a good girl!",
+		secret: process.env.secret,
 		resave: false,
 		saveUninitialized: false
 }));

@@ -1,14 +1,12 @@
 var Bodhi = require("../models/bodhi");
 var Comment = require("../models/comment");
 
-// middleware 
-
 var middlewareObj = {};
 
 middlewareObj.checkBodhiOwnership = function(req, res, next) {
  if(req.isAuthenticated()){
         Bodhi.findById(req.params.id, function(err, foundBodhi){
-           if(err){
+           if(err || !foundBodhi){
                req.flash("error", "bodhi not found");
                res.redirect("back");
            }  else {
