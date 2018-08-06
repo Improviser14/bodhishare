@@ -12,4 +12,4 @@ Moment.js,
 Nodemailer,
 reCaptcha, 
 seeds file,
-last in first dispayed posting
+last in/first displayed postings
