@@ -33,6 +33,7 @@ router.post("/register", function(req, res){
    });
 });
 
+
 //show login form
 router.get("/login", function(req, res ){
    res.render("login"); 
