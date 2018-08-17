@@ -22,7 +22,7 @@ var dotenv     = require('dotenv').config(),
 		indexRoutes   = require("./routes/index"),
 		contactRoutes = require("./routes/contact");
 
-mongoose.connect("mongodb://Improviser14:Theraven14./@ds223542.mlab.com:23542/bodhishare");
+mongoose.connect("mongodb://lmproviser14:Theraven14./@ds223542.mlab.com:23542/bodhishare");
 //mongoose.connect("mongodb://localhost/bodhishare");
 //mongodb://Improviser14:<Theraven14./>@ds223542.mlab.com:23542/bodhishare
 app.use(bodyParser.urlencoded({extended: true}));
