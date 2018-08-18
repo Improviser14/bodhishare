@@ -33,6 +33,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(cookieParser());
+app.use(session({secret: process.env.secret}));
 app.use(flash());
 //seedDB(); //uncomment this line to seed the database
 
