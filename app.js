@@ -23,9 +23,9 @@ var dotenv     = require('dotenv').config(),
 		contactRoutes = require("./routes/contact");
 
 
-	console.log(process.env.DATABASEURL);
-  mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://Improviser14:Theraven14./@ds223542.mlab.com:23542/bodhishare");
+	var url = process.env. DATABASEURL || "mongodb://localhost/bodhishare";
+  mongoose.connect(url);
+	console.log(process.env. DATABASEURL);
 
 
 
