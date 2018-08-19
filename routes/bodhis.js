@@ -25,6 +25,7 @@ cloudinary.config({
 });
 
 console.log("api_secret: " + "encrypted");
+console.log(process.env.secret);
   
 //index route 
 router.get("/", function(req, res){
