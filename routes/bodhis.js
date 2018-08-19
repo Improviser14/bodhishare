@@ -24,7 +24,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-console.log("api_key: " + process.env.CLOUDINARY_API_KEY);
 console.log("api_secret: " + "encrypted");
   
 //index route 
