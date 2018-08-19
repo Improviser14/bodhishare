@@ -24,6 +24,7 @@ var dotenv     = require('dotenv').config(),
 
 
 	var url = process.env. DATABASEURL || "mongodb://localhost/bodhishare";
+	
   mongoose.connect(url);
 	console.log(process.env. DATABASEURL);
 
