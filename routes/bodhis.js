@@ -75,7 +75,6 @@ router.get("/:id", function(req, res){
     options: {sort: {"_id": -1}}
     }).exec(function(err, foundBodhi){
         if(err || !foundBodhi){
-            req.flash("error", "bodhi not found");
             res.redirect("back");
         } else {
             console.log(foundBodhi);
