@@ -22,7 +22,7 @@ var dotenv     = require('dotenv').config(),
 		indexRoutes   = require("./routes/index"),
 		contactRoutes = require("./routes/contact");
 
-
+	console.log(process.env.DATABASEURL);
 	var url = process.env.DATABASEURL || "mongodb://localhost/bodhishare";
 	mongoose.connect(url);
 	
