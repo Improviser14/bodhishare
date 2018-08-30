@@ -20,7 +20,7 @@ middlewareObj.checkBodhiOwnership = function(req, res, next) {
            }
         });
     } else {
-        res.flash("please login to perform this operation");
+        req.flash("please login to perform this operation");
         res.redirect("back");
     }
 };
