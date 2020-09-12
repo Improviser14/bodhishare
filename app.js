@@ -19,6 +19,16 @@ var dotenv = require("dotenv").config(),
   indexRoutes = require("./routes/index"),
   contactRoutes = require("./routes/contact");
 
+//ssl must be configured on the application level --here
+//uncomment this block when deploying see code at the bottom of this file
+if (process.env.ENVIRONMENT === "prod") {
+  app.use(function(req, res, next) {
+    if (req.get("X-Forwarded-Proto") !== "https") {
+      res.redirect("https://" + req.get("Host") + req.url);
+    } else next();
+  });
+}
+
 console.log(process.env.DATABASEURL);
 var url = process.env.DATABASEURL || "mongodb://localhost/bodhishare";
 mongoose.connect(url);
@@ -69,4 +79,10 @@ app.use("/contact", contactRoutes);
 // 		console.log("The bodhishare server has started!");
 // });
 
-app.listen(8080, "127.0.0.1");
+if (process.env.ENVIRONMENT === "prod") {
+  // sets port 8080 to default or unless otherwise specified in the environment
+  app.set("port", process.env.PORT || 80);
+  app.listen(app.get("port"));
+} else {
+  app.listen(8080, "127.0.0.1");
+}
