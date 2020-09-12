@@ -7,7 +7,7 @@
             <div class="list-group">
                 <li class="list-group-item active">author's BTC address:</li>
                 <li class="list-group-item"><em><%= bodhi.BTCaddress %></em></li>
-                <li class="list-group-item">Copy the above hash address, paste it into your bitcoin wallet's send address field and donate to this author directly and securely. Bodhishare does not take a cut of your donation. Take your time and be safe, this is new technology, and welcome to internet 3.0!</li>
+                <li class="list-group-item">suggested donation <%= bodhi.donation %>/BTC</li>
                 <!--<li class="list-group-item"><em><%= bodhi.BTCQR %></em></li> -->
            </div>
         </div>
@@ -17,23 +17,23 @@
                 <div class="thumbnail">
                    <img class="img-responsive" src="<%= bodhi.image %>">
                 <div class="caption-full">
-                   <h4>suggested donation <%= bodhi.donation %>/BTC<h4> 
                    <hr>
                    <h5><a><%=bodhi.name%></a></h5>
                    <p><%= bodhi.description %></p>
                    <p>
                       <em>Submitted by: <%= bodhi.author.username %>, <%= moment(bodhi.createdAt).fromNow() %></em>
                   </p>
-                   <% if(currentUser && bodhi.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin === true){ %>
+                   <% if(currentUser && bodhi.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                         <a class="btn btn-xs btn-warning" href="/bodhis/<%=bodhi._id %>/edit">Edit</a>
                         <form class="delete-form" action="/bodhis/<%=bodhi._id %>?_method=DELETE" method="POST"
                               onsubmit="return confirm('Are You Sure You Want To Delete This Bodhi?');">
                             <button class="btn btn-xs btn-danger">Delete</button>
                         </form>
-                    <% }%>
+                    <% } %>
                    </div>
                </div>
             </div>
+            
             
             <div class="well">
                 <div class="row">

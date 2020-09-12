@@ -18,7 +18,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 //comments create
-router.post("/", middleware.isLoggedIn,function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
     Bodhi.findById(req.params.id, function(err, bodhi){
         if(err){
             console.log(err);
