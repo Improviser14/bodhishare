@@ -22,7 +22,7 @@ var dotenv = require("dotenv").config(),
 //ssl must be configured on the application level --here
 //uncomment this block when deploying see code at the bottom of this file
 if (process.env.ENVIRONMENT === "prod") {
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
     if (req.get("X-Forwarded-Proto") !== "https") {
       res.redirect("https://" + req.get("Host") + req.url);
     } else next();
@@ -31,7 +31,15 @@ if (process.env.ENVIRONMENT === "prod") {
 
 console.log(process.env.DATABASEURL);
 var url = process.env.DATABASEURL || "mongodb://localhost/bodhishare";
-mongoose.connect(url);
+// mongoose.connect(url);
+
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+mongoose.set("useFindAndModify", false);
+
 
 app.use(
   bodyParser.urlencoded({
@@ -63,7 +71,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash("error");
   res.locals.success = req.flash("success");
