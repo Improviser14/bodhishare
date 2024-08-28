@@ -1,7 +1,7 @@
 # bodhishare
 Node/Express app,
 MongoDB/mongoose models,
-Bitcoin tipping feature,
+Tipping feature,
 img upload w/cloudinary,
 Administrator feature,
 Bootstrap 3 responsive layout,
